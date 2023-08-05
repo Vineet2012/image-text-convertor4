@@ -127,6 +127,7 @@ export default function ImageUploadCmp() {
       setCropText("");
       setCropedImage(null);
       setProgress(0);
+      setLanguage({lang: "English"})
   }
 
   const handleDeleteFull = () => {
@@ -134,6 +135,7 @@ export default function ImageUploadCmp() {
       setLoading(false);
       setFullText("");
       setProgress(0);
+      setLanguage({lang: "English"})
   }
 
 
@@ -213,8 +215,8 @@ export default function ImageUploadCmp() {
               onChange={handleChangeSelect}
               name="lang"
       >
-        <option value="Hindi">Hindi</option>
         <option value="English">English</option>
+        <option value="Hindi">Hindi</option>
       </select>
       {/* after image uploadation ends */}
       </div>
