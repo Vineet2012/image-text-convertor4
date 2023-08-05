@@ -22,7 +22,6 @@ export default function ImageUploadCmp() {
   const [language, setLanguage] = useState({
     lang: "",
   });
-  const [cropedImageClicked, setCropedImageClicked] = useState(false);
 
 
   const handleChangeSelect = (event) => {
@@ -240,7 +239,7 @@ export default function ImageUploadCmp() {
       <div className="croped-image-text-wrapper">
       <div className="cropped-text-wrapper">
         <div className="cropped-text">
-      {cropedImage && cropedImageClicked &&
+      {cropedImage &&
       <div style={{display: "flex", flexDirection: "column"}}>
       <span className="cropped-image-full-text">Cropped Image</span>
       <img className="cropped-image" src={cropedImage}  />
@@ -256,7 +255,7 @@ export default function ImageUploadCmp() {
       )}
       </div>
   </div>
-  {cropedImage && cropedImageClicked  && <button onClick={handleDeleteCrop} className="before-upload-delete-button">Delete</button>}
+  {cropedImage  && <button onClick={handleDeleteCrop} className="before-upload-delete-button">Delete</button>}
   </div>
   {/* image cropping ends */}
   {/* whoke image to text starts */}
