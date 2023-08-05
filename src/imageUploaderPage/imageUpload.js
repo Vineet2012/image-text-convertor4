@@ -167,13 +167,6 @@ export default function ImageUploadCmp() {
 
         const base64Image = canvas.toDataURL('image/jpeg');
         setCropedImage(base64Image);
-
-        if(cropedImage === null) {
-          setCropedImageClicked(false);
-          alert("FIRST CROP THE IMAGE FROM UPLOADED IMAGE")
-        }else {
-          setCropedImageClicked(true);
-        }
     }
     
   
@@ -202,7 +195,7 @@ export default function ImageUploadCmp() {
 </ReactCrop>
       <span className='select-upload-text'>SELECT AND UPLOAD THE IMAGE</span>
       <div className='upload-convert-wrapper'>
-      <button className="upload-button" onClick={getCroppedImg}>Crop</button>
+      <button className="upload-button" onClick={getCroppedImg}>Crop(Crop the Image First)</button>
       <button onClick={handleClickEvent} className='upload-button'>UPLOAD(Upload new image)</button>
       <button onClick={handleClickCrop} className='upload-button'>Cropped Image (Convert to text)</button>
       <button onClick={handleClick} className='upload-button'>Convert whole Image to text</button>
