@@ -48,7 +48,7 @@ export default function ImageUploadCmp() {
     setLoading(true);
       setIsRunning(true);
     if(cropedImage === null) {
-      alert("Crop the image first");
+      alert("CROP THE IMAGE FIRST");
     }else {
       if(language.lang === 'Hindi') {
       Tesseract.recognize(
@@ -164,9 +164,15 @@ export default function ImageUploadCmp() {
           crop.height,
         );
 
-        const base64Image = canvas.toDataURL('image/jpeg');
+        if(cropedImage === null && canvas.width === 0) {
+          alert("FIRST CROP THE IMAGE FROM THE UPLOADED IMAGE \n USE THE MOUSE TO CROP THE IMAGE \n CLICK , HOLD AND CROP THE IMAGE")
+        }else {
+          const base64Image = canvas.toDataURL('image/jpeg');
         setCropedImage(base64Image);
+        }
     }
+
+   
     
   
 
@@ -180,21 +186,12 @@ export default function ImageUploadCmp() {
       <div className='image-uploader-wrapper'>
       {image ?
       <div className='upload-wrapper'>
-      <ReactCrop
-    crop={crop}
-    onChange={setCrop}
->
-    <img
-       src={image}
-       onComplete={setSrc}
-       onLoad={(e) => {
-        setImageRef(e.target);
-       }}
-    />
-</ReactCrop>
-      <span className='select-upload-text'>SELECT AND UPLOAD THE IMAGE</span>
+      {/* <span className='select-upload-text'>SELECT AND UPLOAD THE IMAGE</span> */}
+<div className="buttons-outer-wrapper">
       <div className='upload-convert-wrapper'>
-      <button className="upload-button" onClick={getCroppedImg}>Crop(Crop the Image First)</button>
+      <button className="upload-button" onClick={getCroppedImg}>Crop</button>
+      <>
+      </>
       <button onClick={handleClickEvent} className='upload-button'>UPLOAD(Upload new image)</button>
       <button onClick={handleClickCrop} className='upload-button'>Cropped Image (Convert to text)</button>
       <button onClick={handleClick} className='upload-button'>Convert whole Image to text</button>
@@ -210,13 +207,28 @@ export default function ImageUploadCmp() {
         <option value="English">English</option>
         <option value="Hindi">Hindi</option>
       </select>
+      </div>
+      <div className="image-outer-wrapper">
+      <ReactCrop
+    crop={crop}
+    onChange={setCrop}
+>
+    <img
+       src={image}
+       onComplete={setSrc}
+       onLoad={(e) => {
+        setImageRef(e.target);
+       }}
+    />
+</ReactCrop>
+</div>
       {/* after image uploadation ends */}
       </div>
       : 
       // before image upload starts
       <div className='before-uploadation-wrapper' >
         <span className='select-upload-text'>SELECT AND UPLOAD THE IMAGE</span>
-      <button onClick={handleClickEvent} className='before-upload-delete-button'>UPLOAD</button>
+      <button onClick={handleClickEvent} className='after-upload-delete-button'>UPLOAD</button>
       </div>
       // before image upload ends
   }
@@ -236,39 +248,36 @@ export default function ImageUploadCmp() {
   
       </div>
       {/* image cropping starts */}
+      {cropedImage &&
       <div className="croped-image-text-wrapper">
       <div className="cropped-text-wrapper">
         <div className="cropped-text">
-      {cropedImage &&
       <div style={{display: "flex", flexDirection: "column"}}>
       <span className="cropped-image-full-text">Cropped Image</span>
       <img className="cropped-image" src={cropedImage}  />
       </div>
-      }
-      {/* {cropedImageClicked &&<p>CROP THE IMAGE FROM THE UPLOADED IMAGE FIRST</p>} */}
       </div>
       <div className="cropped-text">
       {!loading && text && (
-      <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
       <textarea style={{width: "500px", marginTop: "20%"}} value={text} onChange={(e) => setCropText(e.target.value)} rows={10}></textarea>
       </div>
       )}
       </div>
   </div>
-  {cropedImage  && <button onClick={handleDeleteCrop} className="before-upload-delete-button">Delete</button>}
+  {cropedImage  && <button onClick={handleDeleteCrop} className="after-upload-delete-button">Delete</button>}
   </div>
+    }
   {/* image cropping ends */}
   {/* whoke image to text starts */}
-  {image && 
-  <div style={{display: "flex", flexDirection: "column", marginTop: "40px", justifyContent: "center", alignItems: "center"}}>
-  {!loading && Fulltext && 
-  <>
+  {image && !loading && Fulltext && 
+  
+  <div className="full-text-image-wrapper">
   <span className="cropped-image-full-text">Uploaded Image-Text Conversion</span>
-   <textarea style={{width: "500px"}} value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea> 
-   <button onClick={handleDeleteFull} className="before-upload-delete-button">Delete</button>
-   </>
-  }
-      </div>
+   <textarea style={{width: "70%"}} value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea> 
+   <button onClick={handleDeleteFull} className="after-upload-delete-button">Delete</button>
+   </div>
+
   }
   {/* whoke image to text ends */}
     </div>
