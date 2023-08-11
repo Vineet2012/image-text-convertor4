@@ -85,6 +85,11 @@
   transition: 0.2s;
 }
 
+.after-upload-delete-button:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: #1976d2;
+}
+
 
 .image-wrapper .before-uploadation-wrapper {
   display: flex;
