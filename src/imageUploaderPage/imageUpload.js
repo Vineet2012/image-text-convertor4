@@ -271,7 +271,6 @@ export default function ImageUploadCmp() {
   {/* image cropping ends */}
   {/* whoke image to text starts */}
   {image && !loading && Fulltext && 
-  
   <div className="full-text-image-wrapper">
   <span className="cropped-image-full-text">Uploaded Image-Text Conversion</span>
    <textarea style={{width: "70%"}} value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea> 
