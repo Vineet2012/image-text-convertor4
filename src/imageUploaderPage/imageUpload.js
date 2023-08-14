@@ -165,7 +165,7 @@ export default function ImageUploadCmp() {
         );
 
         if(cropedImage === null && canvas.width === 0) {
-          alert("FIRST CROP THE IMAGE FROM THE UPLOADED IMAGE \n USE THE MOUSE TO CROP THE IMAGE \n CLICK , HOLD AND CROP THE IMAGE")
+          alert("FIRST CROP THE IMAGE FROM THE UPLOADED IMAGE \n USE THE MOUSE TO CROP THE IMAGE \n DOUBLE CLICK , HOLD AND CROP THE IMAGE")
         }else {
           const base64Image = canvas.toDataURL('image/jpeg');
         setCropedImage(base64Image);
