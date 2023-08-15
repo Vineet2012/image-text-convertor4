@@ -22,3 +22,9 @@
   font-family: "Gill Sans", sans-serif;
   letter-spacing: 0.5px;
 }
+
+@media only screen and (max-width: 600px) {
+  .nav-bar .nav-title {
+    font-size: 14px;
+  }
+}

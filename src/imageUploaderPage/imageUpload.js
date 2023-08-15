@@ -187,6 +187,22 @@ export default function ImageUploadCmp() {
       {image ?
       <div className='upload-wrapper'>
       {/* <span className='select-upload-text'>SELECT AND UPLOAD THE IMAGE</span> */}
+
+      <div className="image-outer-wrapper">
+      <ReactCrop
+    crop={crop}
+    onChange={setCrop}
+>
+    <img
+    style={{marginTop: "20px"}}
+       src={image}
+       onComplete={setSrc}
+       onLoad={(e) => {
+        setImageRef(e.target);
+       }}
+    />
+</ReactCrop>
+</div>
 <div className="buttons-outer-wrapper">
       <div className='upload-convert-wrapper'>
       <button className="upload-button" onClick={getCroppedImg}>Crop</button>
@@ -208,20 +224,6 @@ export default function ImageUploadCmp() {
         <option value="Hindi">Hindi</option>
       </select>
       </div>
-      <div className="image-outer-wrapper">
-      <ReactCrop
-    crop={crop}
-    onChange={setCrop}
->
-    <img
-       src={image}
-       onComplete={setSrc}
-       onLoad={(e) => {
-        setImageRef(e.target);
-       }}
-    />
-</ReactCrop>
-</div>
       {/* after image uploadation ends */}
       </div>
       : 
@@ -260,7 +262,7 @@ export default function ImageUploadCmp() {
       <div className="cropped-text">
       {!loading && text && (
         <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-      <textarea style={{width: "500px", marginTop: "20%"}} value={text} onChange={(e) => setCropText(e.target.value)} rows={10}></textarea>
+      <textarea className="textarea-component"  value={text} onChange={(e) => setCropText(e.target.value)} rows={10}></textarea>
       </div>
       )}
       </div>
@@ -273,7 +275,7 @@ export default function ImageUploadCmp() {
   {image && !loading && Fulltext && 
   <div className="full-text-image-wrapper">
   <span className="cropped-image-full-text">Uploaded Image-Text Conversion</span>
-   <textarea style={{width: "70%"}} value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea> 
+   <textarea className="textarea-component" value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea> 
    <button onClick={handleDeleteFull} className="after-upload-delete-button">Delete</button>
    </div>
 

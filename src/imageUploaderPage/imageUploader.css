@@ -164,6 +164,7 @@
 
 .image-wrapper .croped-image-text-wrapper .cropped-text-wrapper {
   display: flex;
+  margin-left: 16px;
 }
 
 .image-wrapper .croped-image-text-wrapper .cropped-text-wrapper .cropped-text {
@@ -191,4 +192,49 @@
   font-size: 18px;
   font-weight: 600;
   margin: 20px 0px 40px 0px;
+}
+
+.textarea-component {
+  width: 500px;
+   margin-top: 18%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .image-wrapper .upload-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .image-wrapper .croped-image-text-wrapper .cropped-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-wrapper .croped-image-text-wrapper .cropped-text-wrapper .cropped-text .cropped-image {
+    width: 100%;
+  }
+
+  .textarea-component {
+    width: 300px;
+    margin-top: 18%;
+  }
+
+  .image-wrapper .progressBar {
+    left: 10%;
+  }
+
+  .image-wrapper .upload-wrapper .upload-convert-wrapper .upload-button {
+    width: 90%;
+    height: 48px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .image-wrapper .upload-wrapper .selectTag {
+    width: 90%;
+    height: 48px;
+  }
 }
