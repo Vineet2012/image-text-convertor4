@@ -8,8 +8,8 @@
 }
 
 .nav-bar .nav-title {
-  font-size: 30px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .company-name {
@@ -17,14 +17,34 @@
   justify-content: center;
   align-items: center;
   margin-top: 40px;
-  font-size: 24px;
+  font-size: 32px;
   text-align: center;
   font-family: "Gill Sans", sans-serif;
   letter-spacing: 0.5px;
+  color: #5963fb;
+  font-weight: 700;
+}
+
+.company-name-text {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 600px) {
   .nav-bar .nav-title {
     font-size: 14px;
+    margin-top: 2px;
+  }
+
+  .company-name-text {
+    font-size: 12px;
+    margin: 8px;
+    text-align: center;
+  }
+
+  .company-name {
+    font-size: 24px;
   }
 }
