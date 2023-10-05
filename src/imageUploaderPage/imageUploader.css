@@ -292,7 +292,7 @@
 
   .image-wrapper .upload-wrapper .image-outer-wrapper .uploaded-image-wrapper {
     margin-top: 20px;
-    max-height: 250px;
+    max-height: 100vh;
     width: 100%;
     overflow: auto; 
     scrollbar-width: thin;
@@ -403,8 +403,8 @@
     position: relative;
     margin: 4% 0px 0% 0px;
     overflow: hidden;
-    left: 0px;
-    width: 120px;
+    left: 18%;
+    width: 60%;
     border-radius: 5px;
     background-color: #eee;
   }

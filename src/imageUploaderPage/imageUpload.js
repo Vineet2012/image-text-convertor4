@@ -267,19 +267,6 @@ export default function ImageUploadCmp() {
 
         {/* image cropping ends */}
         {/* whoke image to text starts */}
-        {image && !loading && Fulltext &&
-          <div className="full-text-image-wrapper">
-            <div className="fullimg-text">
-              <div className="full-image-wrapper">
-                <img className="full-img-conversion" src={image} />
-              </div>
-              {/* <span className="cropped-image-full-text">Uploaded Image-Text Conversion</span> */}
-              <textarea className="textarea-component2" placeholder="Your text will apppear here" value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea>
-            </div>
-            <div></div>
-            <button onClick={handleDeleteFull} className="after-upload-delete-button">Delete</button>
-          </div>
-        }
         <div style={{ marginTop: "8%" }}></div>
         {/* whoke image to text ends */}
         {cropedImage &&
@@ -293,6 +280,19 @@ export default function ImageUploadCmp() {
               <textarea className="textarea-component1" placeholder="Your cropped image text will appear here" value={text} onChange={(e) => setCropText(e.target.value)} rows={10}></textarea>
             </div>
             <button onClick={handleDeleteCrop} className="after-upload-delete-button">Delete</button>
+          </div>
+        }
+        {image && !loading && Fulltext &&
+          <div className="full-text-image-wrapper">
+            <div className="fullimg-text">
+              <div className="full-image-wrapper">
+                <img className="full-img-conversion" src={image} />
+              </div>
+              {/* <span className="cropped-image-full-text">Uploaded Image-Text Conversion</span> */}
+              <textarea className="textarea-component2" placeholder="Your text will apppear here" value={Fulltext} onChange={(e) => setFullText(e.target.value)} rows={10}></textarea>
+            </div>
+            <div></div>
+            <button onClick={handleDeleteFull} className="after-upload-delete-button">Delete</button>
           </div>
         }
       </div>
