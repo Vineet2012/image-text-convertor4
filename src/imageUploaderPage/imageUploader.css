@@ -353,7 +353,7 @@
     display: flex; 
     flex-direction: column; 
     width: 100%;
-    height: 120vh;
+    height: 600px;
   }
   
   .image-wrapper .croped-image-text-wrapper .fullimg-text1 .cropped-img {
@@ -384,7 +384,6 @@
   .fullimg-text1 .textarea-component1 {
   margin-top: 56px;
   width: 90%;  
-  height: 300px;
   }
 
   .image-wrapper .upload-wrapper .upload-convert-wrapper .upload-button {
